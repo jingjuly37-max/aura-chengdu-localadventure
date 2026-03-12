@@ -1,0 +1,52 @@
+<section class="form-section" id="contact">
+  <h2 class="form-title">Customize Your Perfect Chengdu Trip</h2>
+  <p class="form-sub">Tell us your travel dates, group size, and preferences — we’ll craft a personalized itinerary for you. Our team will respond within 24 hours with a detailed quote and plan.</p>
+  <p class="form-note">Max 6 people • Bilingual guide included • 100% customization • Free handmade souvenir</p>
+  <form id="customForm" action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+    <div class="form-row">
+      <label for="name">Your Full Name *</label>
+      <input type="text" id="name" name="name" placeholder="e.g. Sarah Johnson" required>
+    </div>
+    <div class="form-row">
+      <label for="email">Your Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="e.g. sarah@example.com" required>
+    </div>
+    <div class="form-row">
+      <label for="date">Travel Date (Flexible) *</label>
+      <input type="text" id="date" name="date" placeholder="e.g. 2026/03/09 (morning/afternoon) or 2026/03/09–2026/03/10" required>
+    </div>
+    <div class="form-row">
+      <label for="groupSize">Group Size *</label>
+      <select id="groupSize" name="groupSize" required>
+        <option value="">Select Group Size</option>
+        <option value="1-2">1-2 people</option>
+        <option value="3-4">3-4 people</option>
+        <option value="5-6">5-6 people</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label>Preferred Scenes (select all that apply)</label>
+      <div class="multi-select">
+        <label><input type="checkbox" name="scenes" value="alleys"> Old Alleys & Communities</label>
+        <label><input type="checkbox" name="scenes" value="tea"> Local Teahouses & Cafes</label>
+        <label><input type="checkbox" name="scenes" value="markets"> Local Markets & Events</label>
+        <label><input type="checkbox" name="scenes" value="parks"> Chengdu City Parks</label>
+        <label><input type="checkbox" name="scenes" value="hiking"> Suburban Hiking & Outdoor</label>
+        <label><input type="checkbox" name="scenes" value="craft"> Sichuan Handcraft & Culture</label>
+        <label><input type="checkbox" name="scenes" value="food"> Authentic Chengdu Food</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="transport">Need Business Car Transfer?</label>
+      <select id="transport" name="transport">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="requests">Special Requests (e.g., dietary restrictions, activity preferences)</label>
+      <textarea rows="4" id="requests" name="requests" placeholder="Tell us anything we should know to make your trip perfect"></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Submit My Custom Request</button>
+  </form>
+</section>
