@@ -1,0 +1,384 @@
+<section class="section" id="scenes">
+  <h2 class="section-title">Authentic Chengdu Scenes You’ll Explore — Beyond Tourist Hotspots</h2>
+  <p class="section-sub">Handpicked local hidden gems that showcase the real Chengdu: quiet alleys, traditional teahouses, local markets, and more. Each scene is carefully curated to avoid crowds and deliver an authentic Sichuan experience.</p>
+  <div class="container grid">
+    <div class="scene-card" onclick="openSceneModal('alleys')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-00.jpg" class="scene-img" alt="Chengdu old alleys">
+      <div class="scene-content">
+        <h3>Old Alleys & Communities</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="scene-card" onclick="openSceneModal('tea')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-00.jpg" class="scene-img" alt="Chengdu local teahouses">
+      <div class="scene-content">
+        <h3>Local Teahouses & Cafes</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="scene-card" onclick="openSceneModal('markets')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-00.jpg" class="scene-img" alt="Chengdu local markets">
+      <div class="scene-content">
+        <h3>Local Markets & Events</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="scene-card" onclick="openSceneModal('parks')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-00.jpg" class="scene-img" alt="Chengdu city parks">
+      <div class="scene-content">
+        <h3>Chengdu City Parks</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="scene-card" onclick="openSceneModal('hiking')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-00.jpg" class="scene-img" alt="Chengdu suburban hiking">
+      <div class="scene-content">
+        <h3>Suburban Hiking & Outdoor</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="scene-card" onclick="openSceneModal('craft')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-00.jpg" class="scene-img" alt="Sichuan handcraft workshops">
+      <div class="scene-content">
+        <h3>Sichuan Handcraft & Culture</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <div class="scene-card" onclick="openSceneModal('food')">
+      <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-00.jpg" class="scene-img" alt="Authentic Chengdu food">
+      <div class="scene-content">
+        <h3>Authentic Chengdu Food</h3>
+        <div class="scene-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1. Old Alleys Modal -->
+<div class="scene-modal" id="alleysModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('alleys')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('alleys')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-00.jpg" class="carousel-img active" alt="Chengdu old alley with ginkgo trees">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-01.jpg" class="carousel-img" alt="Local community life in Chengdu alley">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-02.jpg" class="carousel-img" alt="Quiet street in Chengdu old town">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-03.jpg" class="carousel-img" alt="Colorful lanterns in Chengdu alley">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-04.jpg" class="carousel-img" alt="Local snack shop in Chengdu alley">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/alleys-05.jpg" class="carousel-img" alt="Bamboo-lined path in Chengdu alley">
+      </div>
+      <div class="scene-desc">
+        <h3>Old Alleys & Communities</h3>
+        <p>Wander through Chengdu’s quiet, tree-lined alleys where locals live, work, and chat. Stroll past cozy street-side cafes, golden ginkgo-lined streets in autumn, and colorful lantern-lit lanes that feel like stepping into a story. This is the real Chengdu—slow, warm, and full of small, beautiful moments you won’t find in tourist guides.</p>
+        <p>Our local guides will introduce you to residents, share stories about the alley’s history, and take you to hidden snack spots loved by locals. You’ll taste authentic Sichuan street food, watch elders play mahjong under old trees, and experience the laid-back lifestyle that makes Chengdu so special.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Teahouses Modal -->
+<div class="scene-modal" id="teaModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('tea')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('tea')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-00.jpg" class="carousel-img active" alt="Sichuan diancha tea ceremony">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-01.jpg" class="carousel-img" alt="Ancient courtyard teahouse">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-02.jpg" class="carousel-img" alt="Local teahouse with bamboo chairs">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-03.jpg" class="carousel-img" alt="Modern cafe with rooftop view">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-04.jpg" class="carousel-img" alt="Tea master teaching diancha">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/tea-05.jpg" class="carousel-img" alt="Sichuan tea and local snacks">
+      </div>
+      <div class="scene-desc">
+        <h3>Local Teahouses & Cafes</h3>
+        <p>Slow down and savor Chengdu’s iconic tea culture in century-old teahouses, where you can sip Sichuan tea while listening to folk music performances. We also take you to cozy, plant-filled cafes and tranquil courtyard spaces—perfect for unwinding, working, or simply enjoying the city’s laid-back vibe.</p>
+        <p>This is where Chengdu’s soul truly breathes. Our guides will share the history of Sichuan tea, teach you how to brew it properly, and recommend the best local snacks to pair with your tea. You’ll also have the chance to learn diancha, a traditional whipped tea technique that dates back to the Song Dynasty.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 3. Markets Modal -->
+<div class="scene-modal" id="marketsModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('markets')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('markets')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-00.jpg" class="carousel-img active" alt="Chengdu night market street food stalls">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-01.jpg" class="carousel-img" alt="Creative craft market in Chengdu">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-02.jpg" class="carousel-img" alt="Local fruits and vegetables market">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-03.jpg" class="carousel-img" alt="Live music event in Chengdu industrial bar">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-04.jpg" class="carousel-img" alt="Handmade jewelry at Chengdu market">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/markets-05.jpg" class="carousel-img" alt="Spicy Sichuan snacks at Chengdu night market">
+      </div>
+      <div class="scene-desc">
+        <h3>Local Markets & Events</h3>
+        <p>Dive into Chengdu’s vibrant local life at bustling markets and community events. Wander through night markets filled with spicy Sichuan street food, browse creative craft fairs where local artisans sell handmade jewelry and textiles, and join cultural festivals that celebrate Sichuan’s traditions.</p>
+        <p>Our guides will take you to markets that are off the tourist radar, where you can bargain for unique souvenirs, taste fresh local fruits, and interact with vendors who have been selling their goods for generations. You’ll also have the chance to join local events like tea ceremonies, calligraphy workshops, and traditional dance performances.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Parks Modal -->
+<div class="scene-modal" id="parksModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('parks')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('parks')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-00.jpg" class="carousel-img active" alt="Chengdu city park with jacaranda flowers">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-01.jpg" class="carousel-img" alt="People flying kites in Chengdu park">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-02.jpg" class="carousel-img" alt="Lotus flowers in Chengdu park">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-03.jpg" class="carousel-img" alt="Children playing in Chengdu park">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-04.jpg" class="carousel-img" alt="Old man playing erhu in Chengdu park">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/parks-05.jpg" class="carousel-img" alt="Bamboo forest in Chengdu park">
+      </div>
+      <div class="scene-desc">
+        <h3>Chengdu City Parks</h3>
+        <p>Chengdu is a city of parks, where locals gather to relax, exercise, and socialize. Explore serene green spaces filled with blooming flowers, ancient trees, and tranquil lakes. Watch locals practice tai chi, fly kites, or play traditional musical instruments.</p>
+        <p>Our guides will take you to the most beautiful and authentic parks, away from the tourist crowds. You’ll have the chance to join in local activities, like calligraphy writing on the ground with water, or simply sit and enjoy a picnic while watching the world go by. These parks are a window into the daily life and relaxed spirit of Chengdu.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Hiking Modal -->
+<div class="scene-modal" id="hikingModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('hiking')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('hiking')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-00.jpg" class="carousel-img active" alt="Chengdu suburban hiking - bamboo forests and mountain views">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-01.jpg" class="carousel-img" alt="Waterfall in Chengdu mountain">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-02.jpg" class="carousel-img" alt="Hiking trail in Chengdu countryside">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-03.jpg" class="carousel-img" alt="Sunset view from Chengdu mountain">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-04.jpg" class="carousel-img" alt="Bamboo forest hiking in Chengdu">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/hiking-05.jpg" class="carousel-img" alt="River in Chengdu mountain">
+      </div>
+      <div class="scene-desc">
+        <h3>Suburban Hiking & Outdoor</h3>
+        <p>Escape the city and explore Chengdu’s stunning natural landscapes. Hike through lush bamboo forests, discover hidden waterfalls, and enjoy panoramic views of mountains and valleys. Our hiking trails are carefully selected for their beauty and tranquility, away from the crowds.</p>
+        <p>Our guides are experienced hikers who know the best routes and can tailor the difficulty to your group’s fitness level. You’ll have the chance to breathe fresh air, listen to birdsong, and experience the peace of the Sichuan countryside. This is the perfect way to relax and connect with nature while still being close to the city.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 6. Craft Modal -->
+<div class="scene-modal" id="craftModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('craft')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('craft')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-00.jpg" class="carousel-img active" alt="Sichuan handcraft workshops - bamboo weaving and diancha tea ceremony">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-01.jpg" class="carousel-img" alt="Master teaching bamboo weaving in Chengdu">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-02.jpg" class="carousel-img" alt="Diancha tea ceremony demonstration in Chengdu">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-03.jpg" class="carousel-img" alt="Sichuan embroidery workshop in Chengdu">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-04.jpg" class="carousel-img" alt="Clay sculpting in Chengdu handcraft studio">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/craft-05.jpg" class="carousel-img" alt="Finished bamboo weaving product">
+      </div>
+      <div class="scene-desc">
+        <h3>Sichuan Handcraft & Culture</h3>
+        <p>Dive deep into Sichuan’s rich cultural heritage with hands-on workshops led by local masters. Learn traditional crafts like bamboo weaving, Sichuan embroidery, clay sculpting, and luodian inlay. These workshops are a unique opportunity to connect with the region’s history and creativity.</p>
+        <p>Our guides will take you to authentic studios where artisans have been practicing their craft for generations. You’ll not only learn a new skill but also gain a deeper appreciation for the time, effort, and artistry that goes into each piece. This is more than just a workshop—it’s a chance to create a personal souvenir that tells a story of your time in Chengdu.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 7. Food Modal -->
+<div class="scene-modal" id="foodModal">
+  <div class="scene-modal-content">
+    <span class="close-modal" onclick="closeSceneModal()">&times;</span>
+    <div class="modal-main">
+      <div class="scene-carousel">
+        <button class="carousel-prev" onclick="prevSlide('food')"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next" onclick="nextSlide('food')"><i class="fas fa-chevron-right"></i></button>
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-00.jpg" class="carousel-img active" alt="Authentic Chengdu food - Sichuan hot pot and local snacks">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-01.jpg" class="carousel-img" alt="Sichuan hot pot with various ingredients">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-02.jpg" class="carousel-img" alt="Chengdu street food - spicy noodles">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-03.jpg" class="carousel-img" alt="Local restaurant in Chengdu">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-04.jpg" class="carousel-img" alt="Chengdu snacks - sugar cake and glutinous rice balls">
+        <img src="https://raw.githubusercontent.com/jingjuly37-max/aura-chengdu-localadventure-images/main/food-05.jpg" class="carousel-img" alt="Chef preparing Sichuan dish">
+      </div>
+      <div class="scene-desc">
+        <h3>Authentic Chengdu Food</h3>
+        <p>No trip to Chengdu is complete without exploring its world-famous food scene. From fiery Sichuan hot pot to delicate street snacks, we’ll take you to the most authentic local eateries—away from tourist traps, where the real flavor of Chengdu lives.</p>
+        <p>Our guides know the best hidden spots: try mapo tofu at a family-run restaurant, savor spicy noodles at a street stall, or taste sweet glutinous rice balls at a century-old shop. Every bite tells a story of Chengdu’s culinary heritage.</p>
+      </div>
+    </div>
+    <div class="scene-form">
+      <h3 class="form-title">Inquire About This Scene</h3>
+      <form action="mailto:jingjuly37@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <input type="text" name="sceneName" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="sceneEmail" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="sceneDate" placeholder="Travel Date" required>
+        </div>
+        <div class="form-row">
+          <select name="sceneGroup" required>
+            <option value="">Group Size</option>
+            <option value="1-2">1-2 people</option>
+            <option value="3-4">3-4 people</option>
+            <option value="5-6">5-6 people</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
