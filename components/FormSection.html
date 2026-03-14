@@ -3,7 +3,7 @@
   <p class="form-sub">Tell us your travel dates, group size, and preferences — we’ll craft a personalized itinerary for you.</p>
   <p class="form-note">Max 6 people • Bilingual guide included • 100% customization • Free handmade souvenir</p>
   
-  <form id="customForm" action="https://hooks.zapier.com/hooks/catch/26387795/ux761f8/" method="POST">
+  <form id="customForm" action="https://hooks.zapier.com/hooks/catch/26387795/ux761f8/" method="POST" target="hidden_iframe" onsubmit="document.getElementById('submitBtn').innerText='Sending...'; submitted=true;">
     <div class="form-row">
       <label for="name">Your Full Name *</label>
       <input type="text" id="name" name="name" placeholder="e.g. Sarah Johnson" required>
@@ -52,54 +52,5 @@
   </form>
 </section>
 
-<script>
-(function() {
-  const initForm = () => {
-    const contactForm = document.getElementById('customForm');
-    const submitBtn = document.getElementById('submitBtn');
-
-    if (!contactForm) return;
-
-    contactForm.onsubmit = async function(e) {
-      // 【关键】立刻阻止跳转
-      e.preventDefault();
-      e.stopPropagation();
-
-      // 禁用按钮防重复
-      const originalText = submitBtn.innerText;
-      submitBtn.innerText = "Processing...";
-      submitBtn.disabled = true;
-
-      try {
-        const formData = new FormData(contactForm);
-        
-        // 发送数据
-        await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors' 
-        });
-
-        // 无论 Zapier 返回什么，只要发出去就算成功
-        alert('Success! Your request has been sent. We will contact you within 24 hours.');
-        contactForm.reset();
-      } catch (error) {
-        console.error('Submission error:', error);
-        alert('Submission failed, but don\'t worry! Please email us at jingjuly37@gmail.com');
-      } finally {
-        submitBtn.innerText = originalText;
-        submitBtn.disabled = false;
-      }
-      
-      return false; // 双重保险阻止跳转
-    };
-  };
-
-  // 确保页面加载完再运行
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initForm);
-  } else {
-    initForm();
-  }
-})();
-</script>
+<script>var submitted = false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Success! Your request has been sent. We will contact you within 24 hours.'); document.getElementById('customForm').reset(); document.getElementById('submitBtn').innerText='Submit My Custom Request'; }"></iframe>
