@@ -1,8 +1,95 @@
-section class="form-section" id="contact" style="min-height: 1200px; height: auto;">
+<section class="form-section" id="contact">
   <h2 class="form-title">Customize Your Perfect Chengdu Trip</h2>
   <p class="form-sub">Tell us your travel dates, group size, and preferences — we’ll craft a personalized itinerary for you. Our team will respond within 24 hours with a detailed quote and plan.</p>
   <p class="form-note">Max 6 people • Bilingual guide included • 100% customization • Free handmade souvenir</p>
-  <div data-tf-live="01KKNK9FXK95MFSGPGQBEA59QP"></div>
-<script src="//embed.typeform.com/next/embed.js"></script>
-</body>
+  
+  <form id="customForm" action="你的_ZAPIER_WEBHOOK_URL_粘贴在这里" method="POST">
+    <div class="form-row">
+      <label for="name">Your Full Name *</label>
+      <input type="text" id="name" name="name" placeholder="e.g. Sarah Johnson" required>
+    </div>
+    <div class="form-row">
+      <label for="email">Your Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="e.g. sarah@example.com" required>
+    </div>
+    <div class="form-row">
+      <label for="date">Travel Date (Flexible) *</label>
+      <input type="text" id="date" name="date" placeholder="e.g. 2026/03/09 (morning/afternoon) or 2026/03/09–2026/03/10" required>
+    </div>
+    <div class="form-row">
+      <label for="groupSize">Group Size *</label>
+      <select id="groupSize" name="groupSize" required>
+        <option value="">Select Group Size</option>
+        <option value="1-2">1-2 people</option>
+        <option value="3-4">3-4 people</option>
+        <option value="5-6">5-6 people</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label>Preferred Scenes (select all that apply)</label>
+      <div class="multi-select">
+        <label><input type="checkbox" name="scenes" value="alleys"> Old Alleys & Communities</label>
+        <label><input type="checkbox" name="scenes" value="tea"> Local Teahouses & Cafes</label>
+        <label><input type="checkbox" name="scenes" value="markets"> Local Markets & Events</label>
+        <label><input type="checkbox" name="scenes" value="parks"> Chengdu City Parks</label>
+        <label><input type="checkbox" name="scenes" value="hiking"> Suburban Hiking & Outdoor</label>
+        <label><input type="checkbox" name="scenes" value="craft"> Sichuan Handcraft & Culture</label>
+        <label><input type="checkbox" name="scenes" value="food"> Authentic Chengdu Food</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="transport">Need Business Car Transfer?</label>
+      <select id="transport" name="transport">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="requests">Special Requests (e.g., dietary restrictions, activity preferences)</label>
+      <textarea rows="4" id="requests" name="requests" placeholder="Tell us anything we should know to make your trip perfect"></textarea>
+    </div>
+    <button type="submit" id="submitBtn" class="submit-btn">Submit My Custom Request</button>
+  </form>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('customForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // 阻止页面刷新跳转
+
+        // 1. 提交时改变按钮文字，防止用户重复点击
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
+
+        // 2. 构造数据
+        const formData = new FormData(contactForm);
+        
+        // 3. 发送到 Zapier
+        fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // 重要：Webhook 通常不支持 CORS，需设为 no-cors
+        })
+        .then(() => {
+          // 4. 成功反馈（因为 no-cors 模式无法读取 response，通常只要没报错即视为成功）
+          alert('Thank you! Your request has been sent. Our team will contact you within 24 hours.');
+          contactForm.reset(); // 清空表单
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Sorry, there was an error. Please try again or email us directly.');
+        })
+        .finally(() => {
+          // 5. 恢复按钮状态
+          submitBtn.innerText = originalBtnText;
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  });
+</script>
