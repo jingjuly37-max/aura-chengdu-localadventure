@@ -1,56 +1,137 @@
 <section class="form-section" id="contact">
   <h2 class="form-title">Customize Your Perfect Chengdu Trip</h2>
   <p class="form-sub">Tell us your travel dates, group size, and preferences — we’ll craft a personalized itinerary for you.</p>
-  <p class="form-note">Max 6 people • Bilingual guide included • 100% customization • Free handmade souvenir</p>
-  
+  <p class="form-note">Max 6 people • Bilingual guide included • 100% customization • Free handmade souvenir for every booking</p>
+
   <form id="customForm" action="https://hooks.zapier.com/hooks/catch/26387795/ux761f8/" method="POST" target="hidden_iframe" onsubmit="document.getElementById('submitBtn').innerText='Sending...'; submitted=true;">
+
     <div class="form-row">
       <label for="name">Your Full Name *</label>
       <input type="text" id="name" name="name" placeholder="e.g. Sarah Johnson" required>
     </div>
+
     <div class="form-row">
       <label for="email">Your Email Address *</label>
       <input type="email" id="email" name="email" placeholder="e.g. sarah@example.com" required>
     </div>
+
     <div class="form-row">
       <label for="date">Travel Date (Flexible) *</label>
-      <input type="text" id="date" name="date" placeholder="e.g. 2026/03/09" required>
+      <input type="text" id="date" name="date" placeholder="e.g. 2026-03-09" required>
     </div>
+
+    <div class="form-row">
+      <label for="theme">Choose a Curated Theme (Optional)</label>
+      <select id="theme" name="theme" onchange="calculateTotal()">
+        <option value="none">No Curated Theme (Custom Scenes Only)</option>
+        <option value="Family-Friendly">Family-Friendly Chengdu Escape</option>
+        <option value="Romantic Getaway">Romantic Chengdu Getaway</option>
+        <option value="Vibrant for Friends">Vibrant Chengdu for Friends</option>
+        <option value="Cultural Immersion">Cultural Immersion in Chengdu</option>
+      </select>
+    </div>
+
     <div class="form-row">
       <label for="groupSize">Group Size *</label>
-      <select id="groupSize" name="groupSize" required>
+      <select id="groupSize" name="groupSize" onchange="calculateTotal()" required>
         <option value="">Select Group Size</option>
         <option value="1-2">1-2 people</option>
         <option value="3-4">3-4 people</option>
         <option value="5-6">5-6 people</option>
       </select>
     </div>
+
     <div class="form-row">
       <label>Preferred Scenes (select all that apply)</label>
       <div class="multi-select">
-        <label><input type="checkbox" name="scenes[]" value="alleys"> Old Alleys & Communities</label>
-        <label><input type="checkbox" name="scenes[]" value="tea"> Local Teahouses & Cafes</label>
-        <label><input type="checkbox" name="scenes[]" value="markets"> Local Markets & Events</label>
-        <label><input type="checkbox" name="scenes[]" value="parks"> Chengdu City Parks</label>
-        <label><input type="checkbox" name="scenes[]" value="hiking"> Suburban Hiking & Outdoor</label>
-        <label><input type="checkbox" name="scenes[]" value="craft"> Sichuan Handcraft & Culture</label>
-        <label><input type="checkbox" name="scenes[]" value="food"> Authentic Chengdu Food</label>
+        <label><input type="checkbox" name="scenes[]" value="alleys" onchange="calculateTotal()"> Old Alleys (+$30)</label>
+        <label><input type="checkbox" name="scenes[]" value="tea" onchange="calculateTotal()"> Local Teahouses (+$30)</label>
+        <label><input type="checkbox" name="scenes[]" value="markets" onchange="calculateTotal()"> Local Markets (+$35)</label>
+        <label><input type="checkbox" name="scenes[]" value="parks" onchange="calculateTotal()"> City Parks (+$30)</label>
+        <label><input type="checkbox" name="scenes[]" value="craft" onchange="calculateTotal()"> Sichuan Handcraft (+$40)</label>
+        <label><input type="checkbox" name="scenes[]" value="food" onchange="calculateTotal()"> Authentic Food Tour (+$60)</label>
+        <label><input type="checkbox" name="scenes[]" value="hiking" onchange="calculateTotal()"> Suburban Hiking (+$40)</label>
       </div>
     </div>
+
     <div class="form-row">
       <label for="transport">Need Business Car Transfer?</label>
-      <select id="transport" name="transport">
-        <option value="no">No</option>
-        <option value="yes">Yes</option>
+      <select id="transport" name="transport" onchange="calculateTotal()">
+        <option value="no">No (Free)</option>
+        <option value="city">Yes - City Area +$50</option>
+        <option value="suburb">Yes - Suburban (Dujiangyan/Pengzhou/Chongzhou) +$120</option>
+        <option value="long">Yes - Long Distance (Emei/Leshan) +$280</option>
+        <option value="custom">Yes - Custom Route (Please note in request)</option>
       </select>
     </div>
+
     <div class="form-row">
       <label for="requests">Special Requests</label>
-      <textarea rows="4" id="requests" name="requests" placeholder="Tell us anything..."></textarea>
+      <textarea rows="4" id="requests" name="requests" placeholder="Tell us your needs..."></textarea>
     </div>
-    <button type="submit" id="submitBtn" class="submit-btn">Submit My Custom Request</button>
+
+    <div class="form-row" style="margin-top:20px;">
+      <label style="font-weight:bold;">Total Price (USD)</label>
+      <span id="totalPrice" style="font-size:1.5rem; color:#2563eb; font-weight:bold;">$0</span>
+    </div>
+
+    <input type="hidden" id="totalPriceInput" name="total_price" value="0">
+
+    <button type="submit" id="submitBtn" class="submit-btn" style="margin-top:20px;">Submit & Proceed to Pay</button>
   </form>
 </section>
 
-<script>var submitted = false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Success! Your request has been sent. We will contact you within 24 hours.'); document.getElementById('customForm').reset(); document.getElementById('submitBtn').innerText='Submit My Custom Request'; }"></iframe>
+<script>
+var submitted = false;
+
+// 套餐价格（无保底、无强制消费）
+const THEME_PRICES = {
+  "Family-Friendly": {"1-2":210, "3-4":280, "5-6":350},
+  "Romantic Getaway": {"1-2":220, "3-4":290, "5-6":360},
+  "Vibrant for Friends": {"1-2":200, "3-4":270, "5-6":340},
+  "Cultural Immersion": {"1-2":210, "3-4":280, "5-6":350},
+  "none": {"1-2":0, "3-4":0, "5-6":0}  // ✅ 无保底，完全自由
+};
+
+// 场景加价
+const SCENE_PRICES = {
+  alleys:30, tea:30, markets:35,
+  parks:30, craft:40, food:60, hiking:40
+};
+
+// 用车价格
+const TRANSPORT_PRICES = {
+  no:0, city:50, suburb:120, long:280, custom:0
+};
+
+// 自动算价
+function calculateTotal() {
+  const theme = document.getElementById("theme").value;
+  const size = document.getElementById("groupSize").value;
+  const transport = document.getElementById("transport").value;
+
+  let total = size ? THEME_PRICES[theme][size] : 0;
+
+  document.querySelectorAll('input[name="scenes[]"]:checked').forEach(el => {
+    total += SCENE_PRICES[el.value];
+  });
+
+  total += TRANSPORT_PRICES[transport];
+
+  document.getElementById("totalPrice").innerText = `$${total}`;
+  document.getElementById("totalPriceInput").value = total;
+}
+
+window.onload = calculateTotal;
+</script>
+
+<!-- 提交成功 → 自动跳转到 PayPal 付款 -->
+<iframe name="hidden_iframe" style="display:none;" onload="if(submitted){
+  const finalAmount = document.getElementById('totalPriceInput').value;
+  alert('Success! Your request has been sent. Redirecting to PayPal...');
+  window.location.href = 'https://www.paypal.com/paypalme/aurachenglocal/' + finalAmount;
+  submitted=false;
+  document.getElementById('customForm').reset();
+  document.getElementById('submitBtn').innerText='Submit & Proceed to Pay';
+  calculateTotal();
+}"></iframe>
