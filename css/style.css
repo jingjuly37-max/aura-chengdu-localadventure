@@ -400,27 +400,36 @@ nav {
   color: #333;
 }
 
-/* ========== 修复后：场景两列布局，复选框与文字对齐 ========== */
+/* ========== 修复后：场景两列布局，解除宽度限制 ========== */
 .multi-select {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 稍微加宽一点，防止文字挤压 */
+  gap: 12px 20px; /* 增加行距和列距，让排版更透气 */
   margin-top: 8px;
 }
+
 .multi-select label {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px; /* 复选框和文字之间的间距 */
   font-weight: normal !important;
   white-space: normal;
   line-height: 1.4;
   font-size: 0.95rem;
+  cursor: pointer; /* 鼠标移上去变成小手，体验更好 */
 }
+
 .multi-select input[type="checkbox"] {
   margin-top: 3px;
   flex-shrink: 0;
+  /* 下面这三行是关键修复：强行覆盖下方全局设定的 100% 宽度和内边距 */
+  width: 18px !important; 
+  height: 18px !important;
+  padding: 0 !important;
+  accent-color: #b91c1c; /* 让复选框选中时变成你的主题红 */
 }
 
+/* 输入框全局样式 */
 input, textarea, select {
   width: 100%;
   padding: 14px 16px;
