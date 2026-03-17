@@ -274,7 +274,6 @@ nav {
 
 .scene-arrow {
   color: #b91c1c;
-  font-size: 1.3rem;
   margin-top: 8px;
 }
 
@@ -400,36 +399,23 @@ nav {
   color: #333;
 }
 
-/* ========== 修复后：场景两列布局，解除宽度限制 ========== */
+/* ========== 恢复：单列布局（和你图里的效果一致） ========== */
 .multi-select {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 稍微加宽一点，防止文字挤压 */
-  gap: 12px 20px; /* 增加行距和列距，让排版更透气 */
+  display: block; /* 恢复单列 */
   margin-top: 8px;
 }
-
 .multi-select label {
   display: flex;
-  align-items: flex-start;
-  gap: 10px; /* 复选框和文字之间的间距 */
+  align-items: center;
+  gap: 8px;
   font-weight: normal !important;
-  white-space: normal;
-  line-height: 1.4;
+  margin-bottom: 8px; /* 增加间距，一行一个 */
   font-size: 0.95rem;
-  cursor: pointer; /* 鼠标移上去变成小手，体验更好 */
 }
-
 .multi-select input[type="checkbox"] {
-  margin-top: 3px;
   flex-shrink: 0;
-  /* 下面这三行是关键修复：强行覆盖下方全局设定的 100% 宽度和内边距 */
-  width: 18px !important; 
-  height: 18px !important;
-  padding: 0 !important;
-  accent-color: #b91c1c; /* 让复选框选中时变成你的主题红 */
 }
 
-/* 输入框全局样式 */
 input, textarea, select {
   width: 100%;
   padding: 14px 16px;
@@ -589,109 +575,3 @@ input:focus, textarea:focus, select:focus {
   border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: background 0.3s;
-}
-
-.close-modal:hover {
-  background: rgba(0,0,0,0.6);
-}
-
-/* =============== 页脚 =============== */
-footer {
-  padding: 4rem 1rem;
-  text-align: center;
-  background: #f8f5f0;
-  color: #666;
-  font-size: 1rem;
-  border-top: 1px solid #eee;
-}
-
-footer p {
-  margin-bottom: 1.5rem;
-}
-
-.footer-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #b91c1c;
-  margin-bottom: 1rem;
-  display: inline-block;
-}
-
-.footer-contact {
-  margin: 1.5rem 0;
-}
-
-.footer-contact a {
-  color: #b91c1c;
-  text-decoration: none;
-}
-
-.copyright {
-  font-size: 0.9rem;
-  color: #999;
-}
-
-/* =============== 响应式适配 =============== */
-@media (max-width: 992px) {
-  .modal-main {
-    flex-direction: column;
-  }
-  .scene-carousel {
-    width: 100%;
-    aspect-ratio: 3/4;
-  }
-  .scene-desc {
-    width: 100%;
-    padding: 2rem;
-    max-height: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .hero-tagline {
-    font-size: 1.1rem;
-  }
-  .hero-cta {
-    padding: 1rem 1.8rem;
-    font-size: 1rem;
-  }
-  .section {
-    padding: 4rem 0;
-  }
-  .section-title {
-    font-size: 2rem;
-  }
-  .form-section {
-    padding: 2rem 1.5rem;
-  }
-  .perks-list, .why-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero {
-    height: 80vh;
-  }
-  .card-img {
-    height: 180px;
-  }
-  .card-body {
-    padding: 1.5rem;
-  }
-  .scene-img {
-    height: 160px;
-  }
-}
