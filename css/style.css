@@ -582,34 +582,34 @@ input:focus, textarea:focus, select:focus {
   justify-content: center;
 }
 
-/* ========== 修复：页脚样式（还原你图三的样子） ========== */
+/* ========== 页脚 Footer 最终版（和你图片完全一致） ========== */
 footer {
-  background-color: #f8f5f0;
+  background: #f8f5f0;
   padding: 5rem 0;
   text-align: center;
   border-top: 1px solid #eee;
 }
 
 footer .footer-logo {
-  font-family: 'Playfair Display', serif; /* 和页眉/标题用同一个字体 */
-  font-size: 2.8rem; /* 调整到和你图中视觉大小匹配 */
+  font-family: 'Playfair Display', serif; /* 与页眉字体完全一致 */
+  font-size: 2.8rem;
   color: #b91c1c;
   font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 0.02em; /* 轻微字间距，更接近图中质感 */
+  margin-bottom: 1.2rem;
 }
 
-footer .footer-desc {
-  color: #666;
-  font-size: 1.1rem;
+footer .footer-tagline {
+  font-size: 1.15rem;
+  color: #333;
   max-width: 700px;
-  margin: 0 auto 2rem;
-  line-height: 1.8;
+  margin: 0 auto 1.8rem;
+  line-height: 1.6;
 }
 
 footer .footer-contact {
-  color: #333;
   font-size: 1rem;
+  color: #333;
+  margin-bottom: 2rem;
 }
 
 footer .footer-contact a {
@@ -619,10 +619,11 @@ footer .footer-contact a {
 }
 
 footer .copyright {
-  margin-top: 2.5rem;
   font-size: 0.9rem;
   color: #999;
-}.nav-inner {
+}
+
+.nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
