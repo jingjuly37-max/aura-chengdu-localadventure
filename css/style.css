@@ -591,11 +591,12 @@ footer {
 }
 
 footer .footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-family: 'Playfair Display', serif; /* 和页眉/标题用同一个字体 */
+  font-size: 2.8rem; /* 调整到和你图中视觉大小匹配 */
   color: #b91c1c;
   font-weight: 700;
   margin-bottom: 1rem;
+  letter-spacing: 0.02em; /* 轻微字间距，更接近图中质感 */
 }
 
 footer .footer-desc {
